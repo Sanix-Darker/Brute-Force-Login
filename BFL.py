@@ -13,13 +13,12 @@ print "# https://github.com/Sanix-Darker   #"
 print "#####################################"
 
 # The link of the website
-url = 'https://www.example.com/login.php'
-
+url = 'http://www.example.com/index.php'
 # The userfield in the form of the login
 userField = 'email'
-
 # The passwordfield in the form
 passwordField = 'pass'
+
 
 # The file contains per lines many possibilities of password
 fakepass_db = open('dictionary.txt')
