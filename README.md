@@ -1,3 +1,4 @@
+<img src="img/logo.png" >
 # Brute-Force-Login
 Brute Force Login in a web site with Python, hack accounts on any website with a good dictionary of words 
 
@@ -8,22 +9,22 @@ BFT is a robot that tries to connect by exploiting the library of passwords that
 
 ### > Specify these configs in the code
 ```python
-	# The link of the website
-	url = 'https://www.example.com/login.php'
+# The link of the website
+url = 'https://www.example.com/login.php'
 
-	# The userfield in the form of the login
-	userField = 'email'
+# The userfield in the form of the login
+userField = 'email'
 
-	# The passwordfield in the form
-	passwordField = 'pass'
+# The passwordfield in the form
+passwordField = 'pass'
 
-	#...
-	#That's it, all your configurations is done
+#...
+#That's it, all your configurations is done
 ```
 ### > Launch it
 ```cmd
-	cd C:/path/to/Brute-Force-Login
-	python BFT.py
+cd C:/path/to/Brute-Force-Login
+python BFT.py
 ```
 
 <img src="img/capture.png" >
