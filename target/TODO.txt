@@ -1,0 +1,3 @@
+if you have Wamp installed or XAMP, put this directory at your wamp/www/ folder
+Or just Run this in the CMD if you have PHP installed
+Ortherwise, modify BFL.py for another target
