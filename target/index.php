@@ -30,8 +30,9 @@
 
     <input type="submit" name="submit" value="Connexion">
   </form>
+  <br><br><br><br>
+  <small>Made by <a target="_blank" href="https://github.com/sanix-darker">S4nixd-d4rk3r</a> to be test with <a target="_blank" href="https://github.com/sanix-darker/brute-force-login">Brute Force Login project</a></small>
 </center>
-
 
 </body>
 
