@@ -61,3 +61,5 @@ for user in users:
                     break
                 else:
                     print "Trying theese parameters: user: "+user+" and password: "+password
+
+Just_to_pause_the_script = raw_input("\n.")

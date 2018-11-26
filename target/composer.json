@@ -1,0 +1,9 @@
+{
+    "name": "target",
+    "type": "Web site",
+    "description": "A simple target Web Site",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6"
+    }
+}
