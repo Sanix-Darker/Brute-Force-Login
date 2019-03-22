@@ -19,7 +19,7 @@ userField = input("\nEnter the User Field:")
 # The passwordfield in the form
 passwordField = input("\nEnter the Password field:")
 # list of potential incorrect message in the page if it doesn't succeed
-incorrectMessage = ['No se encuentra registrado', 'required error', 'No se encuentra registrado']
+incorrectMessage = ['error', 'required error']
 # list of potential success message in the page if it succeed
 successMessage = ['success', 'SUCCESS']
 
