@@ -47,7 +47,7 @@ for user in users:
                 break
             else:
                 failed_aftertry = failed_aftertry+1
-                print ("Connexion failed : 404 Not Found (Verify your link)")
+                print ("Connexion failed : 404 Not Found (Verify your url)")
         else:
             # if you want to see the text result decomment this
             #print data.text
