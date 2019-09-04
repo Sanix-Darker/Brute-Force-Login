@@ -5,6 +5,13 @@
 Brute Force Login in a web site with Python, hack accounts on any website with a good dictionary of words.
 *NOTE: AM NOT RESPONSIBLE OF BAD USE OF THIS PROJECT, it's only for searching purposes and learning environment!*
 
+## Install
+
+Just hit this command to install python packages:
+```shell
+pip install -r requierements.txt
+```
+
 ## How it work?
 BFL is a robot that tries to connect by exploiting the library of passwords that it has in its possession and do not stop to submit the form until it has correspondence, so you can edit the dictionary file. tx by adding your own words for a particular target!
 
