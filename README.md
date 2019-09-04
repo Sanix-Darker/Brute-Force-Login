@@ -1,4 +1,4 @@
-<img src="img/logo.png"/>
+<img src="images/logo.png"/>
 
 # Brute-Force-Login
 
@@ -31,7 +31,7 @@ python BFL.py
 ## Target
 
 The target is present at /target repository, when you run it, you will have this:
-<img src="img/target.png" >
+<img src="images/target.png" >
 
 ### NOTE:
 
@@ -45,7 +45,7 @@ if you don't want to deploy the target locally or doesn't have PHP install local
 ## Execution of BFL
 
 When you launch BFL.py, this is a user case!
-<img src="img/capture.png" >
+<img src="images/capture.png" >
 
 ## Some ressources for password list:
 
