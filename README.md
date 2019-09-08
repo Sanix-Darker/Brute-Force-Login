@@ -63,7 +63,7 @@ When you launch BFL.py, this is a user case!
 - [berzerk0](https://github.com/berzerk0/Probable-Wordlists)
 - [topics/password-cracking](https://github.com/topics/password-cracking)
 
-## BONUS
+## BONUS (A PASSWORD GENERATOR)
 
 i created a password generator for this project named [Genesis](https://github.com/Sanix-Darker/GENESIS), that can generate multiple combination of passwords base on Key Word the victims could use, Have a look there ;-)
 

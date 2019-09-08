@@ -5,7 +5,7 @@ import requests
 
 print ("\n# -------------------------------------------")
 print ("# | __ )|  ___| |    ")
-print ("# |  _ \\| |_  | |    ")
+print ("# |  _ \| |_  | |    ")
 print ("# | |_) |  _| | |___ ")
 print ("# |____/|_|   |_____| v1.0.0")
 print ("# => Brute Force Login <=                     #")
@@ -24,11 +24,11 @@ print("[+] After inspecting the LOGIN form of your target website, please fill h
 
 # Field's Form -------
 # The link of the website
-url = input("\n[+] Enter the 'action' attribute on the Login form of the target URL :")
+url = input("\n[+] Enter the target URL (it's the 'action' attribute on the Login form):")
 # The userfield in the form of the login
-userField = input("\n[+] Enter the User Field:")
+userField = input("\n[+] Enter the User Field  (it's the 'name' attribute on the Login form for the username/email):")
 # The passwordfield in the form
-passwordField = input("\n[+] Enter the Password field:")
+passwordField = input("\n[+] Enter the Password field  (it's the 'name' attribute on the Login form for the password):")
 
 
 # Ressources -------
