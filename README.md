@@ -32,7 +32,7 @@ passwordField = 'pass'
 ### > Launch it via your command line
 ```cmd
 cd C:/path/to/Brute-Force-Login
-python BFL.py
+python main.py
 ```
 
 ## Target
