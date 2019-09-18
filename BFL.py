@@ -1,7 +1,13 @@
 # Brute Force Login
 # By S4n1x D4rk3r
 
-import requests
+from os import system as ss
+try:
+    import requests
+except Exception as es:
+    print(es)
+    ss("pip install requests")
+    import requests
 
 print ("\n# -------------------------------------------")
 print ("# | __ )|  ___| |    ")
@@ -9,9 +15,8 @@ print ("# |  _ \| |_  | |    ")
 print ("# | |_) |  _| | |___ ")
 print ("# |____/|_|   |_____| v1.0.0")
 print ("# => Brute Force Login <=                     #")
-print ("# By S4n1x D4rk3r                             #")
+print ("# By S@n1x d4rk3r                             #")
 print ("# #############################################")
-
 
 LIMIT_TRYING_ACCESSING_URL = 5
 
