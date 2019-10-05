@@ -1,14 +1,8 @@
 # Brute Force Login
 # By S4n1x D4rk3r
 
-from os import system as ss
 from sys import exit
-try:
-    import requests
-except Exception as es:
-    print(es)
-    ss("pip install requests")
-    import requests
+import requests
 
 LIMIT_TRYING_ACCESSING_URL = 5
 
@@ -16,7 +10,6 @@ def openRessources(filePath):
     array_ = open(filePath).readlines()
     array_ = [item.replace("\n", "") for item in array_]
     return array_
-
 
 def manualMode():
     print("[+] Manual mode selected ")
