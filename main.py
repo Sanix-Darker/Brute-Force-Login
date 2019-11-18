@@ -13,9 +13,9 @@ def open_ressources(file_path):
 
 # GLOBAL CONSTANT VARIABLES -------
 # list of potential incorrect message in the page if it doesn't succeed
-INCORRECT_MESSAGE = open_ressources('./ressources/incorrect_message.txt')
+INCORRECT_MESSAGE = open_ressources('./ressources/incorrectMessage.txt')
 # list of potential success message in the page if it succeed
-SUCCESS_MESSAGE = open_ressources('./ressources/success_message.txt')
+SUCCESS_MESSAGE = open_ressources('./ressources/successMessage.txt')
 # Getting list of potentials password
 PASSWORDS = open_ressources('./ressources/passwords.txt')
 # Getting list of user to test with
