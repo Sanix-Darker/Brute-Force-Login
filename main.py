@@ -21,7 +21,7 @@ PASSWORDS = open_ressources('./ressources/passwords.txt')
 # Getting list of user to test with
 USERS = open_ressources('./ressources/users.txt')
 # Limit of trying connections
-LIMIT_TRYING_ACCESSING_URL = 5
+LIMIT_TRYING_ACCESSING_URL = 7
 
 
 
@@ -132,31 +132,13 @@ def automatic_mode():
     """[summary]
     """
     print("[+ This option is not yet ready....]")
-    checkpoint_1()
+    main()
     # # Field's Form -------
     # # The link of the website
     # url = input("\n[+] Enter the URL of the webSite and let me do the rest :")
     # r = requests.get(url)
     # extract_field_form(r.content)
 
-
-def checkpoint_1():
-    """[summary]
-    """
-    print("[+] Select a mode for detecting fields:")
-    print("[+] 1-) Automatic mode (Will get all necessary field and proceed)")
-    print("[+] 2-) Manual mode (you will provide necessary information before continue)")
-    print("[+] -")
-    print("[+] 0-) Stop the program")
-    mode = int(input("[+] Choice: "))
-    if mode == 1:
-        automatic_mode()
-    elif mode == 2:
-        manual_mode()
-    elif mode == 0:
-        exit()
-    else:
-        checkpoint_1()
 
 def main():
     """[summary]
@@ -169,8 +151,16 @@ def main():
     print ("[+] # => Brute Force Login <=                     #")
     print ("[+] # By S@n1x d4rk3r                             #")
     print ("[+] # #############################################")
-
-    checkpoint_1()
+    print("[+] Select a mode for detecting fields:")
+    print("[+] 1-) Automatic mode (Will get all necessary field and proceed)")
+    print("[+] 2-) Manual mode (you will provide necessary information before continue)")
+    print("[+] -")
+    print("[+] 0-) Stop the program")
+    mode = int(input("[+] Choice: "))
+    if mode == 1: automatic_mode()
+    elif mode == 2: manual_mode()
+    elif mode == 0: exit()
+    else: main()
 
 if __name__ == '__main__':
     main()
