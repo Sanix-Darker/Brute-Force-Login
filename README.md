@@ -9,7 +9,7 @@ Brute Force Login in a web site with Python, hack accounts on any website with a
 
 Just hit this command to install python packages:
 ```shell
-pip install -r requierements.txt
+pip3 install -r requierements.txt
 ```
 
 ## How it work?
@@ -32,7 +32,7 @@ passwordField = 'pass'
 ### > Launch it via your command line
 ```cmd
 cd C:/path/to/Brute-Force-Login
-python main.py
+python3 -m app.main
 ```
 
 ## Target
