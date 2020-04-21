@@ -5,6 +5,22 @@
 Brute Force Login in a web site with Python, hack accounts on any website with a good dictionary of words.
 *NOTE: AM NOT RESPONSIBLE OF BAD USE OF THIS PROJECT, it's only for searching purposes and learning environment!*
 
+## Demo
+
+<table>
+    <tr>
+        <td>
+            Manual-Mode (You provide fields, 100% accurate)<br/>
+            <img src="./images/bfl0.gif"/>
+        </td>
+        <td>
+            Automatic-Mode (Auto-detect fields, 47% accurate)<br/>
+            <img src="./images/bfl.gif"/>
+        </td>
+    </tr>
+</table>
+
+
 ## Install
 
 Just hit this command to install python packages:
@@ -17,19 +33,7 @@ BFL is a robot that tries to connect by exploiting the library of passwords that
 
 ## How to use it?
 
-### > Specify these configs on the top of your code
-```python
-# The link of the website
-url = 'https://www.example.com/login.php'
-# The userfield in the form of the login
-userField = 'email'
-# The passwordfield in the form
-passwordField = 'pass'
-#...
-#That's it, all your configurations is done
-```
-
-### > Launch it via your command line
+Launch it via your command line
 ```cmd
 cd C:/path/to/Brute-Force-Login
 python3 -m app.main
@@ -37,7 +41,7 @@ python3 -m app.main
 
 ## Target
 
-The target is present at /target repository, when you run it, you will have this:
+The target is present at `./target` directory, it's a simple php form, when you run it, you will have this:
 <img src="images/target.png" >
 
 ### NOTE:
@@ -48,11 +52,6 @@ if you don't want to deploy the target locally or doesn't have PHP install local
 - Username : sanix
 - Password : .bleach1234
 - PS: on the password, don't forget the "." before b of bleach
-
-## Execution of BFL
-
-When you launch BFL.py, this is a user case!
-<img src="images/capture.png" >
 
 ## Some ressources for password list:
 
@@ -65,7 +64,7 @@ When you launch BFL.py, this is a user case!
 
 ## BONUS (A PASSWORD GENERATOR)
 
-i created a password generator for this project named [Genesis](https://github.com/Sanix-Darker/GENESIS), that can generate multiple combination of passwords base on Key Word the victims could use, Have a look there ;-)
+I also created a password generator for this project named [Genesis](https://github.com/Sanix-Darker/GENESIS), that can generate multiple combination of passwords base on Key Word the victims could use, Have a look there ;-)
 
 ## Author:
 
