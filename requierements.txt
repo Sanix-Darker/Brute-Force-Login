@@ -1,1 +1,3 @@
-requests
+lxml==3.4.4
+requests==2.20.0
+beautifulsoup4
