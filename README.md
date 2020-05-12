@@ -3,33 +3,37 @@
 # Brute-Force-Login
 
 Brute Force Login in a web site with Python, hack accounts on any website with a good dictionary of words.
-*NOTE: AM NOT RESPONSIBLE OF BAD USE OF THIS PROJECT, it's only for searching purposes and learning environment!*
+
+
+**NOTE: AM NOT RESPONSIBLE OF BAD USE OF THIS PROJECT, it's only for searching purposes and learning environment!**
 
 ## Demo
 
-<table>
-    <tr>
-        <td>
-            Manual-Mode (You provide fields, 100% accurate)<br/>
-            <img src="./images/bfl0.gif"/>
-        </td>
-        <td>
-            Automatic-Mode (Auto-detect fields, 47% accurate)<br/>
-            <img src="./images/bfl.gif"/>
-        </td>
-    </tr>
-</table>
+- **Manual-Mode (You provide fields(username/password,...), 100% accurate**)<br/>
+<img src="./images/bfl0.gif"/>
+
+<br/>
+
+- **Automatic-Mode (Auto-detect fields in the login form (username/password,...), 47% accurate)**<br/>
+<img src="./images/bfl.gif"/>
 
 
-## Install
+## Features:
+
+- Perform a brute-force login on a website-target.
+- Can handle a csrf-token in a form.
+- Can Automatically detect form's fields in a given login url.
+
+## How it work ?
+
+BFL is a robot that tries to connect by exploiting the library of passwords that it has in its possession and do not stop to submit the form until it has correspondence, so you can edit the dictionary file. tx by adding your own words for a particular target!
+
+## How to Install
 
 Just hit this command to install python packages:
 ```shell
 pip3 install -r requierements.txt
 ```
-
-## How it work?
-BFL is a robot that tries to connect by exploiting the library of passwords that it has in its possession and do not stop to submit the form until it has correspondence, so you can edit the dictionary file. tx by adding your own words for a particular target!
 
 ## How to use it?
 
