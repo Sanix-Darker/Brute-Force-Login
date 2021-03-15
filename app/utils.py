@@ -192,7 +192,7 @@ def automatic_mode():
     # Field's Form -------
     # The link of the website
     url = input("\n[+] Enter the URL of the webSite and let me do the rest :")
-    r = requests.get(url)
+    r = requests.get(url, verify=False)
 
     extract_field_form(url, r.text)
 
