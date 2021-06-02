@@ -1,3 +1,4 @@
+idna
 lxml
 requests
 beautifulsoup4
